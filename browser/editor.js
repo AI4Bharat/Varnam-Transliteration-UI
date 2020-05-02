@@ -94,15 +94,15 @@ window.VarnamIME = (function() {
                 myCodeMirror.focus();
             }
             hidePopup();
-            learnText(text);
+            learnText(text, w);
         }
 
-        function learnText(text) {
+        function learnText(text, input_text) {
             if (lang === undefined || lang === 'en') return;
-						var data =  JSON.stringify({text: text, lang: lang});
+						var data =  JSON.stringify({output: text, lang: lang, input: input_text});
 						$.ajax({
 							type: "POST",
-							url: "https://api.varnamproject.com/learn",
+							url: "https://xlit-api.ai4bharat.org/learn",
 							data: data,
 							success: function() {},
 							contentType: "application/json; charset=utf-8"
@@ -188,7 +188,7 @@ window.VarnamIME = (function() {
             var show_error = false;
             hidePopup();
             var request = $.ajax({
-              url: 'https://api.varnamproject.com/tl/' + lang + '/' + word,
+              url: 'https://xlit-api.ai4bharat.org/tl/' + lang + '/' + word,
                 //dataType: 'jsonp',
                 //crossDomain: 'true',
                 success: function(data) {

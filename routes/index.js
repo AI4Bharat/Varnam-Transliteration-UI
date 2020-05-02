@@ -21,8 +21,8 @@ app.get('/editor', function(req, res) {
 // app.get('/words/:langCode/:year/:month/:date', functions.wordsToDownload);
 
 app.get('/', function(req, res) {
-      // res.render('index', { title: 'Varnam' });
-      res.redirect("/editor");
+      res.render('index', { title: 'AI4Bharat Transliterator' });
+      // res.redirect("/editor");
 });
 
 // app.get('/downloads', function (req, res) {
@@ -31,6 +31,7 @@ app.get('/', function(req, res) {
 // app.get('/docs', functions.serveDocs);
 // app.get('/docs/*', functions.serveDocs);
 
-// app.get("*", function(req, res) {
-//     helper.render404(res);
-// });
+app.get("*", function(req, res) {
+    // helper.render404(res);
+    res.status(404).sendfile('404.html');
+});

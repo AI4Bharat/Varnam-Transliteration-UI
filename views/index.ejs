@@ -1,11 +1,11 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <% include head %>
+        <%- include('head'); -%>
         <title>Varnam - Cross platform opensource transliterator for Indian languages</title> 
     </head>
     <body>
-        <% include navigation %>
+        <%- include('navigation'); -%>
         <div class="container main-content">
             <div style="width:642px; margin:0 auto; padding-top: 30px">
                 <img src="images/main.gif" />
@@ -21,7 +21,7 @@
                 </div>
             </div>
         </div>
-        <% include footer %>
+        <%- include('footer'); -%>
        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="javascripts/libs/jquery-1.7.1.min.js"><\/script>')</script>
 

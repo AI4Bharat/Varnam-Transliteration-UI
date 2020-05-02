@@ -3,14 +3,14 @@
   "version": "1.0.1",
   "private": true,
   "author": {
-    "name": "OpenShift",
-    "email": "ramr@example.org",
-    "url":  "http://openshift.redhat.com/"
+    "name": "Varnam Project",
+    "email": "varnamproject-discuss@nongnu.org",
+    "url": "https://github.com/varnamproject/"
   },
-  "homepage": "http://openshift.redhat.com/",
+  "homepage": "https://www.varnamproject.com/",
   "repository": {
     "type": "git",
-    "url": "https://gitub.com/openshift/crankcase"
+    "url": "https://github.com/varnamproject/varnamproject.com"
   },
   "engines": {
     "node": ">= 0.6.0",
@@ -21,16 +21,17 @@
     "ejs": "*",
     "mysql": "*",
     "stylus": "*",
-    "forever-monitor": "*",
-    "sqlite3": "*"
+    "forever-monitor": "*"
   },
   "devDependencies": {
+    "ejs-lint": "*",
     "grunt": "~0.4.1",
-    "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-concat": "*",
+    "grunt-contrib-jshint": "~0.1.1",
     "grunt-contrib-uglify": "*"
   },
   "scripts": {
-   "start": "node server.js"
+    "start": "node server.js",
+    "lint:ejs": "ejslint views/*.ejs"
   }
 }

@@ -5,8 +5,9 @@ var http    = require('http')
   , fs      = require('fs')
   , path    = require('path');
 
-var ipaddr  = process.env.VARNAM_IP_ADDRESS;
-var port    = process.env.VARNAM_WEB_PORT || 3000;
+// var ipaddr  = process.env.VARNAM_IP_ADDRESS;
+// var port    = process.env.VARNAM_WEB_PORT || 3000;
+var port = process.env.PORT || 3000;
 
 // Create "express" server.
 app  = express();
@@ -28,9 +29,9 @@ app.configure(function(){
   app.use(app.router);
 });
 
-if (typeof ipaddr === "undefined") {
-   console.warn('No IP_ADDRESS environment variable');
-}
+// if (typeof ipaddr === "undefined") {
+//    console.warn('No IP_ADDRESS environment variable');
+// }
 
 //  terminator === the termination handler.
 function terminator(sig) {
@@ -51,16 +52,15 @@ process.on('exit', function() { terminator(); });
     process.on(element, function() { terminator(element); });
 });
 
-if (process.env.VARNAM_NO_MYSQL === undefined) {
-  var db = require("./lib/varnamdb");
-  db.createSchema();
-}
+// if (process.env.VARNAM_NO_MYSQL === undefined) {
+//   var db = require("./lib/varnamdb");
+//   db.createSchema();
+// }
 
 var routes  = require('./routes')
 
 //  And start the app on that interface (and port).
-app.listen(port, ipaddr, function() {
-   console.log('%s: Node server started on %s:%d ...', Date(Date.now() ),
-               ipaddr, port);
+app.listen(port, function() {
+   console.log('%s: Node server started on port:%d ...', Date(Date.now() ),
+               port);
 });
-

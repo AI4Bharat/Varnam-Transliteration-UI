@@ -1,9 +1,7 @@
 #!/bin/env node
 
 var express = require('express');
-var http    = require('http')
-  , fs      = require('fs')
-  , path    = require('path');
+var path    = require('path');
 
 // var port    = process.env.VARNAM_WEB_PORT || 3000;
 var port = process.env.PORT || 3000;
@@ -66,4 +64,3 @@ app.listen(port, function() {
 });
 
 module.exports = app;
-

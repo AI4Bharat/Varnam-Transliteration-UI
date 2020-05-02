@@ -5,7 +5,6 @@ var http    = require('http')
   , fs      = require('fs')
   , path    = require('path');
 
-// var ipaddr  = process.env.VARNAM_IP_ADDRESS;
 // var port    = process.env.VARNAM_WEB_PORT || 3000;
 var port = process.env.PORT || 3000;
 
@@ -39,10 +38,6 @@ app.configure(function(){
   app.use(app.router);
 });
 
-// if (typeof ipaddr === "undefined") {
-//    console.warn('No IP_ADDRESS environment variable');
-// }
-
 //  terminator === the termination handler.
 function terminator(sig) {
    if (typeof sig === "string") {
@@ -61,11 +56,6 @@ process.on('exit', function() { terminator(); });
 ].forEach(function(element, index, array) {
     process.on(element, function() { terminator(element); });
 });
-
-// if (process.env.VARNAM_NO_MYSQL === undefined) {
-//   var db = require("./lib/varnamdb");
-//   db.createSchema();
-// }
 
 var routes  = require('./routes')
 

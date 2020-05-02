@@ -21,7 +21,8 @@ app.get('/api/rtl/:langCode/:word', functions.rtl);
 app.get('/words/:langCode/:year/:month/:date', functions.wordsToDownload);
 
 app.get('/', function(req, res) {
-  	res.render('index', { title: 'Varnam' });
+      // res.render('index', { title: 'Varnam' });
+      res.redirect("/editor");
 });
 
 app.get('/downloads', function (req, res) {

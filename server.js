@@ -12,6 +12,16 @@ var port = process.env.PORT || 3000;
 // Create "express" server.
 app  = express();
 
+// Force redirect to HTTPS
+app.use(function(req, res, next){
+  if (req.host != 'localhost' && req.get('X-Forwarded-Proto') == 'http') {
+    res.redirect(`https://${req.host}${req.url}`);
+    return;
+  }
+
+  app.router(req, res, next);
+});
+
 app.configure(function(){
   app.set('port', port);
   app.set('root_directory', __dirname);
@@ -64,3 +74,6 @@ app.listen(port, function() {
    console.log('%s: Node server started on port:%d ...', Date(Date.now() ),
                port);
 });
+
+module.exports = app;
+

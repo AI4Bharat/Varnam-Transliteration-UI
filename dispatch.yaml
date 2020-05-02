@@ -1,0 +1,3 @@
+dispatch:
+  - url: transliterate.ai4bharat.org/*
+    service: transliterate

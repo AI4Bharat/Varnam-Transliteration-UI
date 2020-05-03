@@ -6,7 +6,8 @@ Contains Transliteration Editor (forked from [Varnam Project](https://github.com
 
 ### Serving locally
 1. `npm install`
-2. `npm run start`
+2. `npm run build-grunt`
+3. `npm run start`
 
 ### Serving on GCP App Engine
 1. `gcloud app deploy app.yaml`

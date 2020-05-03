@@ -48,13 +48,17 @@ app.use(express.static(path.join(__dirname, 'public')));
 var functions = require('./lib/index.js');
 var helper = require('./lib/helpers.js');
 
-app.get('/editor', function(req, res) {
+app.get('/editor.html', function(req, res) {
   	res.render('editor');
 });
 
-app.get('/', function(req, res) {
+app.get('/index.html', function(req, res) {
       res.render('index', { title: 'AI4Bharat Transliterator' });
-      // res.redirect("/editor");
+});
+
+app.get('/', function(req, res) {
+  res.render('index', { title: 'AI4Bharat Transliterator' });
+  // res.redirect("/editor");
 });
 
 app.get('/downloads', function (req, res) {

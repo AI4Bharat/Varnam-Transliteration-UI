@@ -2,6 +2,8 @@
 window.VarnamIME = (function() {
     "use strict";
 
+    var config = require('../lib/config');
+
     // All the IME state is managed inside this function
     // This function can be instantiated multiple times to enable IME on multiple controls
     function VarnamIME(options) {
@@ -102,7 +104,7 @@ window.VarnamIME = (function() {
 						var data =  JSON.stringify({output: text, lang: lang, input: input_text});
 						$.ajax({
 							type: "POST",
-							url: "https://xlit-api.ai4bharat.org/learn",
+							url: config.API_URL + "/learn",
 							data: data,
 							success: function() {},
 							contentType: "application/json; charset=utf-8"
@@ -188,7 +190,7 @@ window.VarnamIME = (function() {
             var show_error = false;
             hidePopup();
             var request = $.ajax({
-              url: 'https://xlit-api.ai4bharat.org/tl/' + lang + '/' + word,
+              url: config.API_URL + '/tl/' + lang + '/' + word,
                 //dataType: 'jsonp',
                 //crossDomain: 'true',
                 success: function(data) {

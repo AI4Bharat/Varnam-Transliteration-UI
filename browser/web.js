@@ -1,4 +1,5 @@
 var converter = new Showdown.converter();
+var config = require('../lib/config');
 
 $(document).ready(function() {
     hookUnloadEvent();
@@ -23,7 +24,7 @@ $(document).ready(function() {
 });
 
 function loadSupportedLanguages() {
-	var url = "https://xlit-api.ai4bharat.org/languages";
+	var url = config.API_URL + "/languages";
 	var request = $.ajax({
       url: url,
       crossDomain: 'true',

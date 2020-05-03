@@ -4,10 +4,12 @@ Contains Transliteration Editor (forked from [Varnam Project](https://github.com
 
 ## Hosting
 
-### Serving locally
+### Building static files
 1. `npm install`
-2. `npm run build-grunt`
-3. `npm run start`
+2. `npm run build`
+
+### Serving locally
+1. `npm run start`
 
 ### Serving on GCP App Engine
 1. `gcloud app deploy app.yaml`

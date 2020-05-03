@@ -37,7 +37,9 @@
   "scripts": {
     "start": "node server.js",
     "start-dev": "node --trace-warnings --inspect server.js",
+    "build": "npm run build-grunt && npm run build-ejs",
     "build-grunt": "grunt",
+    "build-ejs": "node build-html.js",
     "lint:ejs": "ejslint views/*.ejs"
   }
 }

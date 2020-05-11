@@ -96,7 +96,7 @@ window.VarnamIME = (function() {
                 myCodeMirror.focus();
             }
             hidePopup();
-            learnText(text, w);
+            learnText(text, word);
         }
 
         function learnText(text, input_text) {
@@ -181,7 +181,7 @@ window.VarnamIME = (function() {
         }
 
         function showPopup(x, y, word) {
-            if (lang === 'en') return;
+            if (lang === 'en' || !word) return;
             var params = {
                 'text': word,
                 'lang': lang

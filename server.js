@@ -11,6 +11,7 @@ var session = require('express-session');
 
 // var port    = process.env.VARNAM_WEB_PORT || 3000;
 var port = process.env.PORT || 3000;
+var isHTTPS = false;
 
 // Create "express" server.
 app = express();
@@ -18,13 +19,15 @@ app = express();
 // --------------------- ROUTES --------------------- //
 
 // Force redirect to HTTPS
-app.use(function(req, res, next) {
-  if (req.hostname != 'localhost' && req.get('X-Forwarded-Proto') == 'http') {
-    res.redirect(`https://${req.hostname}${req.url}`);
-    return;
-  }
-  next();
-});
+if (isHTTPS) {
+  app.use(function(req, res, next) {
+    if (req.hostname != 'localhost' && req.get('X-Forwarded-Proto') == 'http') {
+      res.redirect(`https://${req.hostname}${req.url}`);
+      return;
+    }
+    next();
+  });
+}
 
 app.set('port', port);
 app.set('root_directory', __dirname);
@@ -48,12 +51,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 var functions = require('./lib/index.js');
 var helper = require('./lib/helpers.js');
 
-app.get('/editor.html', function(req, res) {
+app.get('/editor', function(req, res) {
   	res.render('editor');
-});
-
-app.get('/index.html', function(req, res) {
-      res.render('index', { title: 'AI4Bharat Transliterator' });
 });
 
 app.get('/', function(req, res) {

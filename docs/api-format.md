@@ -51,4 +51,4 @@ An endpoint to send a user-selected transliteration to the backend. (for fine-tu
   - `output`: Transliteration chosen by the user
   - `lang_code`: Language Code
   - `input`: Corresponding English word
-
+  - `topk_index`: Suggestion Index that was chosen by user

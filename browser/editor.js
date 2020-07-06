@@ -61,7 +61,7 @@ window.VarnamIME = (function() {
 
         function initialEventSetup() {
             $("body").on('dblclick', suggestedItem, function() {
-                replaceWordUnderCaret(getSelectedSuggestion());
+                replaceWordUnderCaret(getSelectedSuggestion(), getSelectedSuggestionIndex());
                 ignoreTextChange = true;
             });
 
@@ -71,8 +71,9 @@ window.VarnamIME = (function() {
                     myCodeMirror.focus();
                 } else if (isWordBreakKey(event.keyCode)) {
                     var text = $(this).find(":selected").text();
+                    var index = $(this).find(":selected").index();
                     if (text !== undefined && text !== '') {
-                        replaceWordUnderCaret(text);
+                        replaceWordUnderCaret(text, index);
                         if (event.keyCode == KEYS.ENTER) {
                             event.preventDefault();
                             event.stopPropagation();
@@ -86,7 +87,7 @@ window.VarnamIME = (function() {
 
         var to_replace_when_response_available = {};
 
-        function replaceWordUnderCaret(text) {
+        function replaceWordUnderCaret(text, suggestionIndex) {
             var w = getWordUnderCaret(myCodeMirror);
             var linech = w.start;
             var xy = myCodeMirror.charCoords(linech);
@@ -96,28 +97,32 @@ window.VarnamIME = (function() {
                 myCodeMirror.focus();
             }
             hidePopup();
-            learnText(text, word);
+            learnText(text, word, suggestionIndex);
         }
 
-        function learnText(text, input_text) {
+        function learnText(text, inputText, topK_Index) {
             if (lang === undefined || lang === 'en') return;
-						var data =  JSON.stringify({output: text, lang: lang, input: input_text});
-						$.ajax({
-							type: "POST",
-							url: config.API_URL + "/learn",
-							data: data,
-							success: function() {},
-							contentType: "application/json; charset=utf-8"
-						});
+            var data =  JSON.stringify({output: text, lang: lang, input: inputText, topk_index: topK_Index});
+            $.ajax({
+                type: "POST",
+                url: config.API_URL + "/learn",
+                data: data,
+                success: function() {},
+                contentType: "application/json; charset=utf-8"
+            });
         }
 
         function getSelectedSuggestion() {
             return $(suggestionList).find(":selected").text();
         }
 
+        function getSelectedSuggestionIndex() {
+            return $(suggestionList).find(":selected").index();
+        }
+
         function processWordBreaks() {
             var text = getSelectedSuggestion();
-            if (text !== undefined && text !== '') replaceWordUnderCaret(text);
+            if (text !== undefined && text !== '') replaceWordUnderCaret(text, getSelectedSuggestionIndex());
         }
 
         function isWordBreakKey(keyCode) {

@@ -20,7 +20,7 @@ Contains Transliteration Editor (forked from [Varnam Project](https://github.com
 #### One-time setup
 1. `cd public`
 2. `git init` and `git checkout -b gh-pages`
-3. `git remote add origin https://github.com/OneFourthLabs/Varnam-Transliteration-UI.git` (Replace your repo if forked)
+3. `git remote add origin https://github.com/AI4Bharat-IndicNLP/Transliteration-UI.git` (Replace your repo if forked)
 4. `git add . && git commit -m "Initial Deploy"`
 6. `git push --force --set-upstream origin gh-pages`
 

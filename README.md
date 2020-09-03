@@ -1,4 +1,4 @@
-# Indic Transliteration UI
+# Xlit - Transliteration UI
 
 Contains Transliteration Editor (forked from [Varnam Project](https://github.com/varnamproject/varnamproject.com/))
 

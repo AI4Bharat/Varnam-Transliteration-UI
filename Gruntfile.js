@@ -56,11 +56,11 @@ module.exports = function(grunt) {
       },
       web: {
         src: ['browser/deps/modernizr-2.6.2.min.js', 'browser/deps/showdown.min.js', 'browser/deps/bootstrap.min.js', 'tmp/codemirror-full-min.js', 'tmp/editor.js', 'tmp/web.js'],
-        dest: 'public/javascripts/varnam.js'
+        dest: 'docs/javascripts/varnam.js'
       },
       addon: {
         src: ['tmp/codemirror-full-min.js', 'tmp/editor.js'],
-        dest: 'public/javascripts/addon.js'
+        dest: 'docs/javascripts/addon.js'
       }
     }
   });

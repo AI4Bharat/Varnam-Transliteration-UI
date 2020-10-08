@@ -45,7 +45,7 @@ app.use(session({
   saveUninitialized: true,
   secret: 'ai4b-session'
 }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'docs')));
 
 
 var functions = require('./lib/index.js');

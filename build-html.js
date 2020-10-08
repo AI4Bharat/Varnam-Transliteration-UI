@@ -23,5 +23,5 @@ function ejs2html(srcPath, destPath, information) {
         });
     })
 }
-ejs2html('views/index.ejs', 'public/index.html');
-ejs2html('views/editor.ejs', 'public/editor.html');
+ejs2html('views/index.ejs', 'docs/index.html');
+ejs2html('views/editor.ejs', 'docs/editor.html');

@@ -32,9 +32,8 @@ Varnam is not that different from Google transliterate in terms of high level fu
 
 ## Why is my favorite language not supported on varnam?
 
-If your language is not supported, you can start contributing and add support for it. Read the [adding a new language](/docs/adding-a-new-language) section to get started.
+If your language is not supported, you can start contributing and add support for it. Read the [adding a new language](https://www.varnamproject.com/docs/adding-a-new-language) section to get started.
 
 ## Why this website's look & feel sucks?
 
 Because I am really bad at designing. Feel free to submit a pull-request with the changes that you wish.
-
